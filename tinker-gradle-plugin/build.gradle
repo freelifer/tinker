@@ -1,0 +1,47 @@
+apply plugin: 'java-gradle-plugin'
+apply plugin: 'kotlin'
+
+gradlePlugin {
+    plugins {
+        shadow {
+            id = "tinker"
+            implementationClass = "freelifer.gradle.plugin._TinkerPlugin"
+        }
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "com.android.tools.build:gradle:$build_gradle_version"
+    testImplementation 'junit:junit:4.11'
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+}
+
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+}
+
+apply plugin: 'maven'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            //设置插件的GAV参数
+            pom.groupId = 'freelifer.plugin'
+            pom.artifactId = 'tinker'
+            pom.version = '1.0.1'
+            //文件发布到下面目录
+            repository(url: uri('../repo'))
+        }
+    }
+}
+
+//-----------
+apply from: rootProject.file('gradle/bintray1.gradle')
