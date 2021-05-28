@@ -44,6 +44,8 @@ class _TinkerPlugin : Plugin<Project> {
 //                    }
                 }
             }
+        } else {
+
         }
     }
 
@@ -52,7 +54,7 @@ class _TinkerPlugin : Plugin<Project> {
         println("==>> manifest ${manifestFile.absolutePath} exists ${manifestFile.exists()}")
         println("==>> mapping ${mapping.absolutePath} exists ${mapping.exists()}")
         if (!manifestFile.exists() || !mapping.exists()) {
-            println("not found file.")
+            println("not found mapping.txt file.")
             return
         }
 
