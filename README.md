@@ -21,15 +21,7 @@ apply plugin: 'tinker'
 
 参数说明
 
-| 参数 | 说明 | 默认 |
-| ------ | ------- | ------- |
-| repositoryId | maven仓库id | 必填 |
-| url | maven仓库地址 | 必填 |
-| groupId | 项目组织 | 必填 |
-| artifactId | 项目名称 | module的名称 |
-| version | 项目版本 | android.defaultConfig.versionName |
-| cmd | maven命令 | mvn |
-| ignore | 根据aar依赖生成pom.xml的忽略依赖库列表 | 空 |
+无
 
 
 
